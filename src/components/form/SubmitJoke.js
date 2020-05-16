@@ -34,6 +34,11 @@ function SubmitJoke(props) {
         put('/submit', params)
             .then((response) => {
                 console.log(response)
+                if (response.status >= 200 && response.status <=300){
+                    alert("Success")
+                }else {
+                    alert("Failure")
+                }
             })
             .catch((err) => console.error('[CategoryList.jsx]', err.message));
     };
