@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useContext} from 'react';
+import {AuthContext} from './context/authContext';
+
 import './App.css';
+import Login from "./components/form/login";
+import JokeList from "./components/JokeList";
+import Info from "./components/Info";
+import SubmitJoke from "./components/form/SubmitJoke";
+import CategoryList from "./components/CategoryList";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const {isAuthenticated} = useContext(AuthContext);
+
+    return (
+        <div className="container">
+            <Info/>
+            {!isAuthenticated && <Login/>}
+            {!isAuthenticated && <CategoryList/>}
+            {isAuthenticated && <JokeList/>}
+            {isAuthenticated && <SubmitJoke/>}
+        </div>
+    );
 }
 
 export default App;

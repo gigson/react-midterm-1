@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import CategoryItem from "./CategoryItem";
 import Joke from "./Joke";
 
-function CategoryList(props) {
+function JokeList(props) {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [list, setList] = useState([]);
 
@@ -43,4 +43,4 @@ function CategoryList(props) {
 
 }
 
-export default CategoryList;
+export default JokeList;

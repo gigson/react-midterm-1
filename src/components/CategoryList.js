@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {get} from "../api/base";
 import CategoryItem from "./CategoryItem";
 
-function CategoryView(props) {
+function CategoryList(props) {
     const [list, setList] = useState([]);
 
     useEffect(() => {
@@ -13,18 +13,14 @@ function CategoryView(props) {
             .catch((err) => console.error('[CategoryList.jsx]', err.message));
     }, []);
 
-    const handleItemClick = (item) => {
-    };
-
 
     let content = list.map((item) => {
         return (
-            <CategoryItem
-                item={item}
-                handleItemClick={() => {
-                    handleItemClick(item);
-                }}
-            />
+            <div>
+                <CategoryItem
+                    item={item}
+                />
+            </div>
         );
     });
 
@@ -33,4 +29,4 @@ function CategoryView(props) {
 
 }
 
-export default CategoryView;
+export default CategoryList;
