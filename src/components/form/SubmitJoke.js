@@ -48,6 +48,7 @@ function SubmitJoke(props) {
 
     return (
         <div>
+            <h3>Submit a new joke:</h3>
             <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
                 <div>
                     <label htmlFor="category">category</label>
